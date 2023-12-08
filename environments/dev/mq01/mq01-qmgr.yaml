@@ -9,15 +9,15 @@ spec:
     use: Development
   pki:
     keys:
-    - name: mq01cert
-      secret:
-        secretName: mq01-qmgr-cert
-        items:
-          - tls.key
-          - tls.crt
+      - name: mq01cert
+        secret:
+          secretName: mq01-qmgr-cert
+          items:
+            - tls.key
+            - tls.crt
   queueManager:
     debug: false
-    image: image-registry.openshift-image-registry.svc:5000/mq01-ci/mq01:0.0.1
+    image: image-registry.openshift-image-registry.svc:5000/mq01-ci/mq01:0.0.3
     imagePullPolicy: Always
     livenessProbe:
       failureThreshold: 1
@@ -55,7 +55,7 @@ spec:
     availability:
       type: SingleInstance
     storage:
-      defaultClass: 
+      defaultClass:
       queueManager:
         type: persistent-claim
       persistedData:
@@ -67,10 +67,10 @@ spec:
   template:
     pod:
       containers:
-      - name: qmgr
-        env:
-        - name: MQSNOAUT
-          value: "yes"
+        - name: qmgr
+          env:
+            - name: MQSNOAUT
+              value: "yes"
   terminationGracePeriodSeconds: 30
   tracing:
     agent: {}
