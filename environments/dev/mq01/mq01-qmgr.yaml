@@ -17,7 +17,7 @@ spec:
             - tls.crt
   queueManager:
     debug: false
-    image: image-registry.openshift-image-registry.svc:5000/mq01-ci/mq01:0.0.5
+    image: image-registry.openshift-image-registry.svc:5000/mq01-ci/mq01:0.0.6
     imagePullPolicy: Always
     livenessProbe:
       failureThreshold: 1
